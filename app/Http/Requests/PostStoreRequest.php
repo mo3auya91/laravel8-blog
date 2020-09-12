@@ -13,7 +13,7 @@ class PostStoreRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return auth('web')->check();
     }
 
     /**
@@ -24,8 +24,12 @@ class PostStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => ['required', 'string', 'max:400'],
-            'content' => ['required', 'string'],
+            'title' => ['required', 'array'],
+            'title.ar' => ['required', 'string', 'min:2', 'max:200'],
+            'title.en' => ['required', 'string', 'min:2', 'max:200'],
+            'content' => ['required', 'array'],
+            'content.ar' => ['required', 'string', 'min:2', 'max:60000'],
+            'content.en' => ['required', 'string', 'min:2', 'max:60000'],
         ];
     }
 }

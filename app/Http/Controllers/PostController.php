@@ -22,7 +22,12 @@ class PostController extends Controller
     {
         $posts = Post::all();
 
-        return view('post.index', compact('posts'));
+        return view('posts.index', compact('posts'));
+    }
+
+    public function create()
+    {
+        return view('posts.create');
     }
 
     /**
@@ -31,16 +36,21 @@ class PostController extends Controller
      */
     public function store(PostStoreRequest $request)
     {
-        $post = Post::create($request->validated());
+        $post = auth('web')->user()->posts()->create($request->validated());
 
-        Notification::send($post->author, new ReviewNotification($post));
+        Notification::send($post->user, new ReviewNotification($post));
 
         SyncMedia::dispatch($post);
 
         event(new NewPost($post));
 
-        $request->session()->flash('post.title', $post->title);
+        $request->session()->flash('posts.title', $post->title);
 
-        return redirect()->route('post.index');
+        return redirect()->route('posts.index');
+    }
+
+    public function show(Post $post, string $slug)
+    {
+        return view('posts.show', ['post' => $post]);
     }
 }
