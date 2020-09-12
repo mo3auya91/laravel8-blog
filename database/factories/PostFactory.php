@@ -1,14 +1,36 @@
 <?php
 
-/** @var \Illuminate\Database\Eloquent\Factory $factory */
+namespace Database\Factories;
 
 use App\Models\Post;
-use Faker\Generator as Faker;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
-$factory->define(Post::class, function (Faker $faker) {
-    return [
-        'title' => $faker->sentence(4),
-        'content' => $faker->paragraphs(3, true),
-        'published_at' => $faker->dateTime(),
-    ];
-});
+class PostFactory extends Factory
+{
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = Post::class;
+
+    /**
+     * Define the model's default state.
+     *
+     * @return array
+     */
+    public function definition()
+    {
+        return [
+            'user_id' => UserFactory::create(),
+            'title' => \GuzzleHttp\json_encode([
+                'ar' => $this->faker->sentence,
+                'en' => $this->faker->sentence,
+            ]),
+            'content' => \GuzzleHttp\json_encode([
+                'ar' => $this->faker->paragraphs(3),
+                'en' => $this->faker->paragraphs(3),
+            ]),
+        ];
+    }
+}

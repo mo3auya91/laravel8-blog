@@ -12,8 +12,8 @@ class NewPost
 
     /**
      * Create a new event instance.
-     *
-     * @return void
+     * NewPost constructor.
+     * @param $post
      */
     public function __construct($post)
     {

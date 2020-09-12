@@ -28,10 +28,10 @@ class PostControllerTest extends TestCase
     {
         $posts = factory(Post::class, 3)->create();
 
-        $response = $this->get(route('post.index'));
+        $response = $this->get(route('posts.index'));
 
         $response->assertOk();
-        $response->assertViewIs('post.index');
+        $response->assertViewIs('posts.index');
         $response->assertViewHas('posts');
     }
 
@@ -60,7 +60,7 @@ class PostControllerTest extends TestCase
         Queue::fake();
         Event::fake();
 
-        $response = $this->post(route('post.store'), [
+        $response = $this->post(route('posts.store'), [
             'title' => $title,
             'content' => $content,
         ]);
@@ -72,10 +72,10 @@ class PostControllerTest extends TestCase
         $this->assertCount(1, $posts);
         $post = $posts->first();
 
-        $response->assertRedirect(route('post.index'));
-        $response->assertSessionHas('post.title', $post->title);
+        $response->assertRedirect(route('posts.index'));
+        $response->assertSessionHas('posts.title', $post->title);
 
-        Notification::assertSentTo($post->author, ReviewNotification::class, function ($notification) use ($post) {
+        Notification::assertSentTo($post->user, ReviewNotification::class, function ($notification) use ($post) {
             return $notification->post->is($post);
         });
         Queue::assertPushed(SyncMedia::class, function ($job) use ($post) {

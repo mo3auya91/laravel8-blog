@@ -2,15 +2,17 @@
 
 namespace App\Models;
 
+use Eloquent;
+use Illuminate\Database\Eloquent\Builder;
 use Laravel\Jetstream\Membership as JetstreamMembership;
 
 /**
  * App\Models\Membership
  *
- * @method static \Illuminate\Database\Eloquent\Builder|Membership newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Membership newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Membership query()
- * @mixin \Eloquent
+ * @method static Builder|Membership newModelQuery()
+ * @method static Builder|Membership newQuery()
+ * @method static Builder|Membership query()
+ * @mixin Eloquent
  */
 class Membership extends JetstreamMembership
 {

@@ -13,13 +13,22 @@ class CreatePostsTable extends Migration
      */
     public function up()
     {
+        Schema::disableForeignKeyConstraints();
+
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->string('title', 400);
-            $table->longText('content');
+            $table->foreignId('user_id')
+                ->constrained('users')
+                ->references('id')
+                ->cascadeOnDelete();
+            $table->json('title');
+            $table->json('content');
             $table->timestamp('published_at')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
+
+        Schema::enableForeignKeyConstraints();
     }
 
     /**

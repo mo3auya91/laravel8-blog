@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,5 +22,5 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-
-Route::resource('post', 'PostController')->only('index', 'store');
+Route::resource('posts', PostController::class)->except(['show']);
+Route::get('posts/{post}/{slug?}', [PostController::class, 'show'])->name('posts.show');

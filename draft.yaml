@@ -1,20 +1,25 @@
 models:
   Post:
-    title: string:400
-    content: longtext
+    user_id: foreign
+    #    user_id: unsignedBigInteger
+    title: json
+    content: json
     published_at: nullable timestamp
+    softDeletes
+    #    relationships:
+    #      belongsTo: User
 
 controllers:
   Post:
     index:
       query: all
-      render: post.index with:posts
+      render: posts.index with:posts
 
     store:
       validate: title, content
-      save: post
-      send: ReviewNotification to:post.author with:post
-      dispatch: SyncMedia with:post
-      fire: NewPost with:post
-      flash: post.title
-      redirect: post.index
+      save: posts
+      send: ReviewNotification to:posts.user with:posts
+      dispatch: SyncMedia with:posts
+      fire: NewPost with:posts
+      flash: posts.title
+      redirect: posts.index
