@@ -170,7 +170,12 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Composer Script.ide-helper">
+    <configuration name="ide-helper" type="ComposerRunConfigurationType" factoryName="Composer Script" temporary="true">
+      <option name="pathToComposerJson" value="$PROJECT_DIR$/composer.json" />
+      <option name="script" value="ide-helper" />
+      <method v="2" />
+    </configuration>
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
       <method v="2" />
@@ -187,6 +192,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Composer Script.ide-helper" />
         <item itemvalue="npm.dev" />
       </list>
     </recent_temporary>
@@ -238,25 +244,33 @@
     <option name="LAST_COMMIT_MESSAGE" value="install laravel localization package" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1398" height="240" key="GridCell.Tab.0.bottom" timestamp="1599930162501">
+    <state x="471" y="383" key="ComposerInitDialogKey" timestamp="1599930952614">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1398" height="240" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1599930162501" />
-    <state width="1398" height="240" key="GridCell.Tab.0.center" timestamp="1599930162500">
+    <state x="471" y="383" key="ComposerInitDialogKey/0.23.1440.877@0.23.1440.877" timestamp="1599930952614" />
+    <state width="1398" height="240" key="GridCell.Tab.0.bottom" timestamp="1599930972240">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1398" height="240" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1599930162500" />
-    <state width="1398" height="240" key="GridCell.Tab.0.left" timestamp="1599930162500">
+    <state width="1398" height="240" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1599930972240" />
+    <state width="1398" height="240" key="GridCell.Tab.0.center" timestamp="1599930972239">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1398" height="240" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1599930162500" />
-    <state width="1398" height="240" key="GridCell.Tab.0.right" timestamp="1599930162501">
+    <state width="1398" height="240" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1599930972239" />
+    <state width="1398" height="240" key="GridCell.Tab.0.left" timestamp="1599930972239">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1398" height="240" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1599930162501" />
-    <state x="320" y="203" key="Vcs.Push.Dialog.v2" timestamp="1599930058392">
+    <state width="1398" height="240" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1599930972239" />
+    <state width="1398" height="240" key="GridCell.Tab.0.right" timestamp="1599930972239">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="320" y="203" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1599930058392" />
+    <state width="1398" height="240" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1599930972239" />
+    <state x="320" y="203" key="Vcs.Push.Dialog.v2" timestamp="1599930828278">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="320" y="203" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1599930828278" />
+    <state x="385" y="213" width="670" height="676" key="search.everywhere.popup" timestamp="1599930966202">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="385" y="213" width="670" height="676" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1599930966202" />
   </component>
 </project>
