@@ -20,13 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4d37f8bb-bc2b-4c6a-97de-8530d958b872" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/laravel8-blog.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/laravel8-blog.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,6 +163,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -204,7 +199,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1599929964986</updated>
-      <workItem from="1599929967103" duration="622000" />
+      <workItem from="1599929967103" duration="919000" />
     </task>
     <task id="LOCAL-00001" summary="fresh installaition of laravel jetstream">
       <created>1599930056193</created>
@@ -213,7 +208,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599930056193</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="install laravel localization package">
+      <created>1599930826657</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1599930826657</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -232,7 +234,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fresh installaition of laravel jetstream" />
-    <option name="LAST_COMMIT_MESSAGE" value="fresh installaition of laravel jetstream" />
+    <MESSAGE value="install laravel localization package" />
+    <option name="LAST_COMMIT_MESSAGE" value="install laravel localization package" />
   </component>
   <component name="WindowStateProjectService">
     <state width="1398" height="240" key="GridCell.Tab.0.bottom" timestamp="1599930162501">
