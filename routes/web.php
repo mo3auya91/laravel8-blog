@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PostController;
+use App\Http\Livewire\CreatePost;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,5 +23,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::resource('posts', PostController::class)->except(['show']);
+Route::post('posts/create', [CreatePost::class, 'createPost'])->name('livewire.posts.show');
+Route::resource('posts', PostController::class)->except(['show', 'store']);
 Route::get('posts/{post}/{slug?}', [PostController::class, 'show'])->name('posts.show');

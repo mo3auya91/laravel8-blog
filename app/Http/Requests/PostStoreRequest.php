@@ -30,6 +30,17 @@ class PostStoreRequest extends FormRequest
             'content' => ['required', 'array'],
             'content.ar' => ['required', 'string', 'min:2', 'max:60000'],
             'content.en' => ['required', 'string', 'min:2', 'max:60000'],
+            'image' => ['nullable', 'image', 'max:' . (2 * 1024)],
         ];
+    }
+
+    public function attributes()
+    {
+        $attributes = [];
+        foreach (LOCALS() as $key => $locale) {
+            $attributes['title.' . $key] = __('app.title') . ' ' . $locale['native'];
+            $attributes['content.' . $key] = __('app.content') . ' ' . $locale['native'];
+        }
+        return $attributes;
     }
 }

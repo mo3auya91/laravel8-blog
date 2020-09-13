@@ -4,6 +4,7 @@ models:
     #    user_id: unsignedBigInteger
     title: json
     content: json
+    image: string:250 nullable
     published_at: nullable timestamp
     softDeletes
     #    relationships:

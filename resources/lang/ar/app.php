@@ -9,4 +9,6 @@ return [
     'title' => 'العنوان',
     'content' => 'الموضوع',
     'publish' => 'نشر',
+    'created_successfully' => 'تم الإنشاء بنجاح',
+    'image' => 'الصورة',
 ];

@@ -53,6 +53,7 @@ class Post extends Model
         'user_id',
         'title',
         'content',
+        'image',
         'published_at',
     ];
 
@@ -80,5 +81,19 @@ class Post extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function setImageAttribute($image)
+    {
+        if (isset($image)) {
+            $this->attributes['image'] = str_replace('public/', 'storage/', $image->store('public/posts'));;
+        }
+    }
+
+    public function getImageAttribute($image)
+    {
+        return !is_null($image)
+            ? asset($image)
+            : 'https://images.unsplash.com/photo-1521185496955-15097b20c5fe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80';
     }
 }

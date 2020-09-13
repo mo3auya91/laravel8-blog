@@ -37,7 +37,7 @@
                             {{ __('app.dashboard') }}
                         </x-jet-nav-link>
 
-                        <x-jet-nav-link href="{{route('posts.index')}}" :active="request()->routeIs('posts.index')">
+                        <x-jet-nav-link href="{{route('posts.index')}}" :active="request()->routeIs('posts.*')">
                             {{ __('app.posts') }}
                         </x-jet-nav-link>
 
@@ -143,7 +143,7 @@
         <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
             <div class="pt-2 pb-3 space-y-1">
                 <x-jet-responsive-nav-link href="/dashboard" :active="request()->routeIs('dashboard')">
-                    {{ __('Dashboard') }}
+                    {{ __('app.dashboard') }}
                 </x-jet-responsive-nav-link>
             </div>
 
@@ -228,12 +228,36 @@
 
     <!-- Page Content -->
     <main>
+        @if(session()->has('success'))
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                    <div class="bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md"
+                         role="alert">
+                        <div class="flex">
+                            <div class="py-1">
+                                <svg
+                                    class="h-6 w-6 text-teal-500 mr-4"
+                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-bold">{{session('success')}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endif
         {{ $slot }}
     </main>
 </div>
 
 @stack('modals')
 
+<script src="{{asset('js/app.js')}}"></script>
 @livewireScripts
 </body>
 </html>
