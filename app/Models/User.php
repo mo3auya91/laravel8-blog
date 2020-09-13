@@ -110,4 +110,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Post::class);
     }
+
+//    public function getProfilePhotoUrlAttribute($image)
+//    {
+//        return 'https://ui-avatars.com/api/?name='.urlencode($this->name).'&color=7F9CF5&background=EBF4FF';
+//    }
 }

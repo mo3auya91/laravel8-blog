@@ -19,10 +19,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
 
-Route::post('posts/create', [CreatePost::class, 'createPost'])->name('livewire.posts.show');
-Route::resource('posts', PostController::class)->except(['show', 'store']);
-Route::get('posts/{post}/{slug?}', [PostController::class, 'show'])->name('posts.show');
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+    Route::post('posts/create', [CreatePost::class, 'createPost'])->name('livewire.posts.show');
+    Route::resource('posts', PostController::class)->except(['show', 'store']);
+    Route::get('posts/{post}/{slug?}', [PostController::class, 'show'])->name('posts.show');
+});

@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class PostFactory extends Factory
@@ -22,15 +23,15 @@ class PostFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => UserFactory::create(),
-            'title' => \GuzzleHttp\json_encode([
+            //'user_id' => User::query()->inRandomOrder()->first()->id,
+            'title' => [
                 'ar' => $this->faker->sentence,
                 'en' => $this->faker->sentence,
-            ]),
-            'content' => \GuzzleHttp\json_encode([
-                'ar' => $this->faker->paragraphs(3),
-                'en' => $this->faker->paragraphs(3),
-            ]),
+            ],
+            'content' => [
+                'ar' => $this->faker->paragraph(10),
+                'en' => $this->faker->paragraph(10),
+            ],
         ];
     }
 }

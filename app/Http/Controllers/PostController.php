@@ -5,11 +5,15 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
-use Illuminate\Support\Str;
 use Illuminate\View\View;
 
 class PostController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['auth:sanctum', 'verified'])->only(['create']);
+    }
+
     /**
      * @return Application|Factory|View
      */

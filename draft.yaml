@@ -1,26 +1,35 @@
 models:
-  Post:
-    user_id: foreign
-    #    user_id: unsignedBigInteger
+  Category:
     title: json
-    content: json
-    image: string:250 nullable
-    published_at: nullable timestamp
-    softDeletes
-    #    relationships:
-    #      belongsTo: User
 
-controllers:
-  Post:
-    index:
-      query: all
-      render: posts.index with:posts
+#  Post:
+#    user_id: foreign
+#    category_id: foreign
+#    #    user_id: unsignedBigInteger
+#    title: json
+#    content: json
+#    image: string:250 nullable
+#    published_at: nullable timestamp
+#    softDeletes
+#    #    relationships:
+#    #      belongsTo: User
 
-    store:
-      validate: title, content
-      save: posts
-      send: ReviewNotification to:posts.user with:posts
-      dispatch: SyncMedia with:posts
-      fire: NewPost with:posts
-      flash: posts.title
-      redirect: posts.index
+  CategoryPost:
+    category_id: foreign
+    post_id: foreign
+
+
+#controllers:
+#  Post:
+#    index:
+#      query: all
+#      render: posts.index with:posts
+#
+#    store:
+#      validate: title, content
+#      save: posts
+#      send: ReviewNotification to:posts.user with:posts
+#      dispatch: SyncMedia with:posts
+#      fire: NewPost with:posts
+#      flash: posts.title
+#      redirect: posts.index

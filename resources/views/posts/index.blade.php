@@ -20,16 +20,22 @@
 
                                     <div class=" w-70 bg-white -mt-10 shadow-lg rounded-lg overflow-hidden p-5">
 
-                                        <div class="header-content inline-flex ">
-                                            <div
-                                                class="category-badge flex-1  h-4 w-4 m rounded-full m-1 bg-purple-100">
-                                                <div class="h-2 w-2 rounded-full m-1 bg-purple-500 "></div>
+                                        @foreach($post->categories as $category)
+                                            <div class="header-content inline-flex ">
+                                                <div
+                                                    class="category-badge flex-1  h-4 w-4 m rounded-full m-1 bg-purple-100">
+                                                    <div class="h-2 w-2 rounded-full m-1 bg-purple-500 "></div>
+                                                </div>
+                                                <div class="category-title flex-1 text-sm"> {{$category->title}}</div>
                                             </div>
-                                            <div class="category-title flex-1 text-sm"> PHP</div>
-                                        </div>
-                                        <div class="title-post font-medium">{{$post->title}}</div>
+                                        @endforeach
+                                        <a href="{{route('posts.show', ['post' => $post->id, 'slug' => slug($post->title)])}}">
+                                            <div class="title-post font-bold">{{$post->title}}</div>
+                                        </a>
+                                        <br>
 
-                                        <div class="summary-post text-base text-justify">{!! $post->content !!}
+                                        <div class="summary-post text-base text-justify">
+                                            {{strlen(strip_tags($post->content)) > 100 ? mb_substr(strip_tags($post->content),0,100,'utf-8') . '...' : strip_tags($post->content)}}
                                             <a href="{{route('posts.show', ['post' => $post->id, 'slug' => slug($post->title, '-', 'ar')])}}"
                                                class="bg-blue-100 text-blue-500 mt-4 block rounded p-2 text-sm ">
                                                 <span class="">{{__('app.read_more')}}</span></a>

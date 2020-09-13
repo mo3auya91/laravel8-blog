@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Eloquent;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Query\Builder;
@@ -41,6 +42,7 @@ class Post extends Model
 {
     use SoftDeletes;
     use HasTranslations;
+    use HasFactory;
 
     public $translatable = ['title', 'content'];
 
@@ -86,7 +88,7 @@ class Post extends Model
     public function setImageAttribute($image)
     {
         if (isset($image)) {
-            $this->attributes['image'] = str_replace('public/', 'storage/', $image->store('public/posts'));;
+            $this->attributes['image'] = str_replace('public/', 'storage/', $image->store('public/posts'));
         }
     }
 
@@ -95,5 +97,10 @@ class Post extends Model
         return !is_null($image)
             ? asset($image)
             : 'https://images.unsplash.com/photo-1521185496955-15097b20c5fe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80';
+    }
+
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class, 'category_posts')->withTimestamps();
     }
 }

@@ -18,12 +18,18 @@
                                         <h2 class="text-4xl font-semibold text-gray-800 leading-tight">
                                             {{ ucfirst($post->title) }}
                                         </h2>
-                                        <a
-                                            href="#"
-                                            class="py-2 text-green-700 inline-flex items-center justify-center mb-2"
-                                        >
-                                            Add post category
-                                        </a>
+                                        <div class="header-content inline-flex ">
+                                            @foreach($post->categories as $category)
+                                                <div
+                                                    class="category-badge flex-1  h-4 w-4 m rounded-full m-1 bg-purple-100">
+                                                    <div class="h-2 w-2 rounded-full m-1 bg-purple-500 "></div>
+                                                </div>
+                                                <a href="#{{$category->title}}">
+                                                    <div
+                                                        class="category-title flex-1 text-sm"> {{$category->title}}</div>
+                                                </a>
+                                            @endforeach
+                                        </div>
                                     </div>
                                     <img src="{{$post->image}}" class="w-full object-cover lg:rounded"
                                          style="height: 28em;" alt="{{ ucfirst($post->title) }}"
@@ -40,7 +46,7 @@
                                     <div class="w-full lg:w-1/4 m-auto mt-12 max-w-screen-sm">
                                         <div class="p-4 border-t border-b md:border md:rounded">
                                             <div class="flex py-2">
-                                                <img src="{{@$post->user->image}}"
+                                                <img src="{{@$post->user->profile_photo_url}}"
                                                      class="h-10 w-10 rounded-full mr-2 object-cover"/>
                                                 <div>
                                                     <p class="font-semibold text-gray-700 text-sm"> {{@$post->user->name}} </p>
