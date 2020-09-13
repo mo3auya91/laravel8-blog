@@ -11,6 +11,7 @@ use Laravel\Jetstream\Events\TeamCreated;
 use Laravel\Jetstream\Events\TeamDeleted;
 use Laravel\Jetstream\Events\TeamUpdated;
 use Laravel\Jetstream\Team as JetstreamTeam;
+use Spatie\Translatable\HasTranslations;
 
 /**
  * App\Models\Team
@@ -38,6 +39,9 @@ use Laravel\Jetstream\Team as JetstreamTeam;
 class Team extends JetstreamTeam
 {
     use HasFactory;
+    use HasTranslations;
+
+    public $translatable = ['name'];
 
     /**
      * The attributes that should be cast to native types.

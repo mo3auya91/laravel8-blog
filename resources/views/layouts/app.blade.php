@@ -62,16 +62,16 @@
                         <x-slot name="content">
                             <!-- Account Management -->
                             <div class="block px-4 py-2 text-xs text-gray-400">
-                                {{ __('Manage Account') }}
+                                {{ __('app.manage_account') }}
                             </div>
 
-                            <x-jet-dropdown-link href="/user/profile">
-                                {{ __('Profile') }}
+                            <x-jet-dropdown-link href="{{route('profile.show')}}">
+                                {{ __('app.profile') }}
                             </x-jet-dropdown-link>
 
                             @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
-                                <x-jet-dropdown-link href="/user/api-tokens">
-                                    {{ __('API Tokens') }}
+                                <x-jet-dropdown-link href="{{route('api-tokens.index')}}">
+                                    {{ __('app.api_tokens') }}
                                 </x-jet-dropdown-link>
                             @endif
 
@@ -80,17 +80,18 @@
                             <!-- Team Management -->
                             @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
                                 <div class="block px-4 py-2 text-xs text-gray-400">
-                                    {{ __('Manage Team') }}
+                                    {{ __('app.manage_team') }}
                                 </div>
 
                                 <!-- Team Settings -->
-                                <x-jet-dropdown-link href="/teams/{{ Auth::user()->currentTeam->id }}">
-                                    {{ __('Team Settings') }}
+                                <x-jet-dropdown-link
+                                    href="{{route('teams.show', ['team' => Auth::user()->currentTeam->id])}}">
+                                    {{ __('app.team_settings') }}
                                 </x-jet-dropdown-link>
 
                                 @can('create', Laravel\Jetstream\Jetstream::newTeamModel())
-                                    <x-jet-dropdown-link href="/teams/create">
-                                        {{ __('Create New Team') }}
+                                    <x-jet-dropdown-link href="{{route('teams.create')}}">
+                                        {{ __('app.create_new_team') }}
                                     </x-jet-dropdown-link>
                                 @endcan
 
@@ -98,7 +99,7 @@
 
                                 <!-- Team Switcher -->
                                 <div class="block px-4 py-2 text-xs text-gray-400">
-                                    {{ __('Switch Teams') }}
+                                    {{ __('app.switch_teams') }}
                                 </div>
 
                                 @foreach (Auth::user()->allTeams() as $team)
@@ -115,7 +116,7 @@
                                 <x-jet-dropdown-link href="{{ route('logout') }}"
                                                      onclick="event.preventDefault();
                                                                      this.closest('form').submit();">
-                                    {{ __('Logout') }}
+                                    {{ __('app.logout') }}
                                 </x-jet-dropdown-link>
                             </form>
                         </x-slot>

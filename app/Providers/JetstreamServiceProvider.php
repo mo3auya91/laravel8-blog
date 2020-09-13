@@ -7,8 +7,10 @@ use App\Actions\Jetstream\CreateTeam;
 use App\Actions\Jetstream\DeleteTeam;
 use App\Actions\Jetstream\DeleteUser;
 use App\Actions\Jetstream\UpdateTeamName;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Jetstream\Jetstream;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class JetstreamServiceProvider extends ServiceProvider
 {
@@ -29,6 +31,15 @@ class JetstreamServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Route::prefix(LaravelLocalization::setLocale())
+            ->middleware([
+                'web',
+                'localeSessionRedirect',
+                'localizationRedirect',
+                'localeViewPath'
+            ])
+            ->group(base_path('routes/jetstream.php'));
+
         $this->configurePermissions();
 
         Jetstream::createTeamsUsing(CreateTeam::class);
