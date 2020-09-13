@@ -2,18 +2,18 @@
 
 namespace App\Http\Livewire;
 
-use App\Events\NewPost;
+//use App\Events\NewPost;
 use App\Http\Requests\PostStoreRequest;
 use App\Jobs\SyncMedia;
-use App\Notification\ReviewNotification;
-use Illuminate\Support\Facades\Notification;
+//use App\Notification\ReviewNotification;
+//use Illuminate\Support\Facades\Notification;
 use Livewire\Component;
 
 class CreatePost extends Component
 {
     public function render()
     {
-        return view('livewire.create-post');
+        return view('livewire.posts-create-post');
     }
 
     public function createPost(PostStoreRequest $request)

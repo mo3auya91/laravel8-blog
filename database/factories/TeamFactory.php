@@ -22,8 +22,11 @@ class TeamFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->firstName,
-            'personal_team' => true,
+            'name' => [
+                'ar' => $this->faker->firstName,
+                'en' => $this->faker->firstName,
+            ],
+            'personal_team' => 1,
         ];
     }
 }
