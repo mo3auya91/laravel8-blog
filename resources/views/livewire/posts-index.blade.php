@@ -22,9 +22,8 @@
                                         </div>
                                     @endforeach
                                     <a href="{{route('posts.show', ['post' => $post->id, 'slug' => slug($post->title)])}}">
-                                        <div class="title-post font-bold">{{$post->title}}</div>
+                                        <div class="py-3 title-post font-bold">{{$post->title}}</div>
                                     </a>
-                                    <br>
 
                                     <div class="summary-post text-base text-justify">
                                         {{strlen(strip_tags($post->content)) > 100 ? \Illuminate\Support\Str::substr(strip_tags($post->content),0,100) . '...' : strip_tags($post->content)}}

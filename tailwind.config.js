@@ -7,6 +7,8 @@ module.exports = {
         extend: {
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
+                DroidKufiRegular: ['DroidKufi-Regular', ...defaultTheme.fontFamily.sans],
+                // DroidKufiBold: ['DroidKufiBold', ...defaultTheme.fontFamily.sans],
             },
         },
     },

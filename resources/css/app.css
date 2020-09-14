@@ -1,3 +1,6 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+@import url('https://cdn.hct.ac.ae/Fonts/fonts/Droid-Arabic-Kufi');
+/*@import url('https://cdn.hct.ac.ae/Fonts/fonts/Droid-Arabic-Kufi/DroidKufi-Regular.ttf');*/
+/*@import '/public/fonts';*/
