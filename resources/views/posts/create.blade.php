@@ -18,4 +18,8 @@
             </div>
         </div>
     </div>
+    <script src="https://cdn.ckeditor.com/4.15.0/full-all/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replaceClass = 'ckeditor';
+    </script>
 </x-app-layout>

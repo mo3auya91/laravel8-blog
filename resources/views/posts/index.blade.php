@@ -5,6 +5,9 @@
         </h2>
         <a href="{{route('posts.create')}}">{{__('app.create_post')}}</a>
     </x-slot>
-    <livewire:all-posts :posts="$posts"/>
+
+    <livewire:search-posts/>
+
+    <livewire:all-posts/>
     {{--    @livewire('all-posts',['posts' => $posts])--}}
 </x-app-layout>

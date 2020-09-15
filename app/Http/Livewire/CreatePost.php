@@ -20,11 +20,11 @@ class CreatePost extends Component
     {
         $post = auth('web')->user()->posts()->create($request->validated());
 
-        //Notification::send($post->user, new ReviewNotification($post));
+        Notification::send($post->user, new ReviewNotification($post));
 
         SyncMedia::dispatch($post);
 
-        //event(new NewPost($post));
+        event(new NewPost($post));
 
         $request->session()->flash('success', __('app.created_successfully'));
 

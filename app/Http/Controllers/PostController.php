@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
-use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Contracts\View\Factory;
 use Illuminate\View\View;
 
 class PostController extends Controller
@@ -14,22 +12,17 @@ class PostController extends Controller
         $this->middleware(['auth:sanctum', 'verified'])->only(['create']);
     }
 
-    /**
-     * @return Application|Factory|View
-     */
-    public function index()
+    public function index(): View
     {
-        $posts = Post::query()->orderByDesc('id')->get();
-
-        return view('posts.index', compact('posts'));
+        return view('posts.index');
     }
 
-    public function create()
+    public function create(): View
     {
         return view('posts.create');
     }
 
-    public function show(Post $post, string $slug)
+    public function show(Post $post, string $slug): View
     {
         return view('posts.show', ['post' => $post]);
     }
