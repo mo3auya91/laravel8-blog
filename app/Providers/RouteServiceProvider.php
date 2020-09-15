@@ -40,21 +40,11 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->routes(function () {
             Route::prefix(LaravelLocalization::setLocale())
-                ->middleware([
-                    'web',
-                    'localeSessionRedirect',
-                    'localizationRedirect',
-                    'localeViewPath'
-                ])
+                ->middleware(['web'])
                 ->group(base_path('routes/web.php'));
 
             Route::prefix(LaravelLocalization::setLocale())
-                ->middleware([
-                    'web',
-                    'localeSessionRedirect',
-                    'localizationRedirect',
-                    'localeViewPath'
-                ])
+                ->middleware(['web'])
                 ->group(base_path('routes/auth.php'));
 
             Route::prefix('api')

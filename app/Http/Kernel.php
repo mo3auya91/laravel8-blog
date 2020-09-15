@@ -64,6 +64,14 @@ class Kernel extends HttpKernel
             ShareErrorsFromSession::class,
             VerifyCsrfToken::class,
             SubstituteBindings::class,
+            //start Mcamara LaravelLocalization middlewares
+            LocaleSessionRedirect::class,
+            LaravelLocalizationRedirectFilter::class,
+            LaravelLocalizationViewPath::class,
+            //could remove these two middlewares
+            LaravelLocalizationRoutes::class,
+            LocaleCookieRedirect::class,
+            //end Mcamara LaravelLocalization middlewares
         ],
 
         'api' => [

@@ -32,12 +32,7 @@ class JetstreamServiceProvider extends ServiceProvider
     public function boot()
     {
         Route::prefix(LaravelLocalization::setLocale())
-            ->middleware([
-                'web',
-                'localeSessionRedirect',
-                'localizationRedirect',
-                'localeViewPath'
-            ])
+            ->middleware(['web'])
             ->group(base_path('routes/jetstream.php'));
 
         $this->configurePermissions();
