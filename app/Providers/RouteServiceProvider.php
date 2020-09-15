@@ -48,6 +48,15 @@ class RouteServiceProvider extends ServiceProvider
                 ])
                 ->group(base_path('routes/web.php'));
 
+            Route::prefix(LaravelLocalization::setLocale())
+                ->middleware([
+                    'web',
+                    'localeSessionRedirect',
+                    'localizationRedirect',
+                    'localeViewPath'
+                ])
+                ->group(base_path('routes/auth.php'));
+
             Route::prefix('api')
                 ->middleware('api')
                 ->group(base_path('routes/api.php'));

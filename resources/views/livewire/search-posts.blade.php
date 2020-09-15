@@ -37,16 +37,17 @@
                             </svg>
                         </button>
                         <label for="search_word" class="hidden"></label>
-                        <input type="search" name="search_word" id="search_word" wire:input="filterBySearchWord" wire:model="search_word"
+                        <input type="search" name="search_word" id="search_word"
+                               wire:model="search_word"
+                               wire:keydown.debounce.500ms="filterBySearchWord"
                                placeholder="search for a post"
                                class="w-full pl-4 text-sm outline-none focus:outline-none bg-transparent">
                         <div class="select">
                             <label for="category_id" class="hidden"></label>
-                            {{--todo pass the parameters to the component and update parent component--}}
                             <select name="category_id" id="category_id" wire:model="category_id"
                                     wire:change="filterByCategoryId"
                                     class="text-sm outline-none focus:outline-none bg-transparent">
-                                <option value="all" selected>All</option>
+                                <option value="all">All</option>
                                 @foreach($categories as $category)
                                     <option value="{{$category->id}}">{{$category->title}}</option>
                                 @endforeach
