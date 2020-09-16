@@ -1,6 +1,6 @@
 <div class="py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-        {{--        Total: {{$posts->total()}}--}}
+        Total: {{$posts->total()}}
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
             <section class="blog text-gray-700 body-font">
                 <div class="container px-5 py-24 mx-auto">
